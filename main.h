@@ -7,9 +7,10 @@
 #include <string.h>
 #include <unistd.h>
 #include <string.h>
+#include <limits.h>
 
 #define UNUSED(x) (void)(x)
-#define BUFF_SIZE 1024
+#define OUTPUT_BUFFER_SIZE 1024
 
 /* programme flags */
 #define F_MINUS 1
@@ -25,7 +26,7 @@
 int _printf(const char *format, ...);
 
 
-int getFlags(const char *formatString, int *currentIndex)
+int getFlags(const char *formatString, int *currentIndex);
 int getWidth(const char *format, int *i, va_list list);
 int getPrecision(const char *format, int *i, va_list list);
 int getSize(const char *formatString, int *currentIndex);
@@ -66,4 +67,27 @@ int printPercent(va_list args, char outputBuffer[],
 	int activeFlags, int fieldWidth, int precision, int sizeSpecifier);
 
 int writeChar(char c, char buffer[], int flags, int width, int precision, int size);
+
+/****************** UTILS ******************/
+int isPrintable(char c);
+int appendHexaCode(char asciiCode, char buffer[], int startIndex);
+int isDigit(char c);
+
+long int convertSizeNumber(long int num, int size);
+long int convertSizeUnsigned(unsigned long int num, int size);
+
+/* width handler */
+int writeChar(char c, char buffer[],
+	int flags, int width, int precision, int size);
+int writeNumber(int isNegative, int ind, char buffer[],
+	int flags, int width, int precision, int size);
+int writeNum(int ind, char buffer[],
+	int flags, int width, int prec,
+	int length, char paddingChar, char extraChar);
+int writePointer(char buffer[], int ind, int length,
+	int width, int flags, char paddingChar, char extraChar, int paddingStart);
+
+int writeUnsigned(int isNegative, int ind,
+	char buffer[], int flags, int width, int precision, int size);
+
 #endif

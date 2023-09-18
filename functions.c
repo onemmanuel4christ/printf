@@ -13,11 +13,12 @@
  * Return: Number of characters printed
  */
 int printCharacter(va_list args, char outputBuffer[],
-	int activeFlags, int fieldWidth, int precision, int sizeSpecifier)
+		int activeFlags, int fieldWidth, int precision, int sizeSpecifier)
 {
 	char character = va_arg(args, int);
 
-	return (handleWriteChar(character, outputBuffer, activeFlags, fieldWidth, precision, sizeSpecifier));
+	return (writeChar(character, outputBuffer, activeFlags,
+				fieldWidth, precision, sizeSpecifier));
 }
 
 /************************* PRINT STRING *************************/
@@ -31,8 +32,9 @@ int printCharacter(va_list args, char outputBuffer[],
  * @sizeSpecifier: Size specifier
  * Return: Number of characters printed
  */
-int printString(va_list args, char outputBuffer[],
-	int activeFlags, int fieldWidth, int precision, int sizeSpecifier)
+
+int printString(va_list args, char outputBuffer[], int activeFlags,
+		int fieldWidth, int precision, int sizeSpecifier)
 {
 	int length = 0, i;
 	char *str = va_arg(args, char *);
@@ -88,7 +90,7 @@ int printString(va_list args, char outputBuffer[],
  * Return: Number of characters printed
  */
 int printPercent(va_list args, char outputBuffer[],
-	int activeFlags, int fieldWidth, int precision, int sizeSpecifier)
+		int activeFlags, int fieldWidth, int precision, int sizeSpecifier)
 {
 	UNUSED(args);
 	UNUSED(outputBuffer);
@@ -111,7 +113,7 @@ int printPercent(va_list args, char outputBuffer[],
  * Return: Number of characters printed
  */
 int printInteger(va_list args, char outputBuffer[],
-	int activeFlags, int fieldWidth, int precision, int sizeSpecifier)
+		int activeFlags, int fieldWidth, int precision, int sizeSpecifier)
 {
 	int i = OUTPUT_BUFFER_SIZE - 2;
 	int isNegative = 0;
@@ -140,7 +142,8 @@ int printInteger(va_list args, char outputBuffer[],
 
 	i++;
 
-	return (writeNumber(isNegative, i, outputBuffer, activeFlags, fieldWidth, precision, sizeSpecifier));
+	return (writeNumber(isNegative, i, outputBuffer,
+				activeFlags, fieldWidth, precision, sizeSpecifier));
 }
 
 /************************* PRINT BINARY *************************/
@@ -155,7 +158,7 @@ int printInteger(va_list args, char outputBuffer[],
  * Return: Number of characters printed
  */
 int printBinary(va_list args, char outputBuffer[],
-	int activeFlags, int fieldWidth, int precision, int sizeSpecifier)
+		int activeFlags, int fieldWidth, int precision, int sizeSpecifier)
 {
 	unsigned int n, m, i, sum;
 	unsigned int a[32];
