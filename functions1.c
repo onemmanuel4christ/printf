@@ -17,7 +17,7 @@ int printUnsignedNumber(va_list args, char outputBuffer[],
 	int i = OUTPUT_BUFFER_SIZE - 2;
 	unsigned long int num = va_arg(args, unsigned long int);
 
-	num = convertSizeUnsigned(num, sizeSpecifier);
+	num = convertSize Unsigned int (num, sizeSpecifier);
 
 	if (num == 0)
 		outputBuffer[i--] = '0';
