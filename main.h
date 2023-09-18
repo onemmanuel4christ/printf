@@ -25,11 +25,10 @@
 int _printf(const char *format, ...);
 
 
-
-int getFlags(const char *format, int *i);
+int getFlags(const char *formatString, int *currentIndex)
 int getWidth(const char *format, int *i, va_list list);
 int getPrecision(const char *format, int *i, va_list list);
-int getSize(const char *format, int *i);
+int getSize(const char *formatString, int *currentIndex);
 int handlePrint(const char *fmt, int *i,
 va_list list, char buffer[], int flags, int width, int precision, int size);
 
@@ -66,5 +65,5 @@ int printCharacter(va_list args, char outputBuffer[],
 int printPercent(va_list args, char outputBuffer[],
 	int activeFlags, int fieldWidth, int precision, int sizeSpecifier);
 
-
+int writeChar(char c, char buffer[], int flags, int width, int precision, int size);
 #endif
