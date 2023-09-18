@@ -6,7 +6,7 @@
  * Return: Printed chars.
  */
 int _printf(const char *format, ...)
-
+{
 	int i, printed = 0, printed_chars = 0;
 	int flags, width, precision, size, buff_ind = 0;
 	va_list list;
@@ -20,7 +20,7 @@ int _printf(const char *format, ...)
 		if (format[i] != '%')
 		{
 			buffer[buff_ind++] = format[i];
-			if (buff_ind == BUFF_SIZE)
+			if (buff_ind == BUFSIZ)
 				print_buffer(buffer, &buff_ind);
 			printed_chars++;
 		}
@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 			size = getSize(format, &i);
 			++i;
 			printed = handlePrint(format, &i, list, buffer,
-				flags, width, precision, size);
+					flags, width, precision, size);
 			if (printed == -1)
 				return (-1);
 			printed_chars += printed;

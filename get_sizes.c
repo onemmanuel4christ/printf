@@ -8,7 +8,7 @@
  * Return: Precision.
  */
 
-int get_size(const char *formatString, int *currentIndex)
+int getSize(const char *formatString, int *currentIndex)
 {
 	int currentIdx = *currentIndex + 1;
 
@@ -20,9 +20,9 @@ int get_size(const char *formatString, int *currentIndex)
 	else if (formatString[currentIdx] == 'h')
 		size = S_SHORT;
 
-			if (size == 0)
-				*currentIndex = currentIdx - 1;
-			else
-				*currentIndex = currentIdx;
-return (size);
+	if (size == 0)
+		*currentIndex = currentIdx - 1;
+	else
+		*currentIndex = currentIdx;
+	return (size);
 }

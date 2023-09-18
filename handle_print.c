@@ -49,4 +49,4 @@ int handlePrint(const char *format, int *index, va_list args, char
 		return (unknownLength);
 	}
 	return (printedChars);
-
+}

@@ -8,7 +8,7 @@
  *
  * Return: Width.
  */
-int calculateWidth(const char *format, int *currentIndex, va_list list)
+int getWidth(const char *format, int *currentIndex, va_list list)
 {
 	int currentIdx;
 	int width = 0;

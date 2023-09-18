@@ -42,7 +42,6 @@ struct format
  * @fm_t: The function associated.
  */
 typedef struct format fmt_t;
-
 int _printf(const char *format, ...);
 int getFlags(const char *formatString, int *currentIndex);
 int getWidth(const char *format, int *i, va_list list);
@@ -104,8 +103,17 @@ int writeNum(int ind, char buffer[],
 	int length, char paddingChar, char extraChar);
 int writePointer(char buffer[], int ind, int length,
 	int width, int flags, char paddingChar, char extraChar, int paddingStart);
-
 int writeUnsigned(int isNegative, int ind,
 	char buffer[], int flags, int width, int precision, int size);
+int printNonPrintable(va_list args, char outputBuffer[],
+                int activeFlags, int fieldWidth, int precision, int sizeSpecifier);
+
+int printPointer(va_list args, char outputBuffer[],
+		int activeFlags, int fieldWidth, int precision, int sizeSpecifier);
+int printReverse(va_list args, char outputBuffer[],
+                int activeFlags, int fieldWidth, int precision, int sizeSpecifier);
+int printRot13String(va_list args, char outputBuffer[],
+                int activeFlags, int fieldWidth, int precision, int sizeSpecifier);
+void print_buffer(char buffer[], int *buff_ind);
 
 #endif

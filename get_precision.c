@@ -8,7 +8,7 @@
  *
  * Return: Precision.
  */
-int calculatePrecision(const char *format, int *currentIndex, va_list list)
+int getPrecision(const char *format, int *currentIndex, va_list list)
 {
 	int currentIdx = *currentIndex + 1;
 	int precision = -1;
