@@ -17,12 +17,12 @@ int handlePrint(const char *format, int *index, va_list args, char
 		int precision, int sizeSpecifier)
 {
 	int i, unknownLength = 0, printedChars = -1;
-	FormatType formatTypes[] = {
-		{'c', printedChars}, {'s', printString}, {'%', printPercent},
-		{'i', printf}, {'d', printInt}, {'b', printBinary},
-		{'u', writeUnsigned}, {'o', printOctal}, {'x', printHexadecimal},
-		{'X', writePointer}, {'p', printPointer}, {'S', printNonPrintable},
-		{'r', printString}, {'R', printRot13String}, {'\0', NULL}
+	fmt_t formatTypes[] = {
+		{'c', printCharacter}, {'s', printString}, {'%', printPercent},
+		{'i', printInteger}, {'d', printInteger}, {'b', printBinary},
+		{'u', printUnsignedNumber}, {'o', printOctalNumber}, {'x', printHexadecimalNumber},
+		{'X', printHexadecimalNumberUpper}, {'p', printPointer}, {'S', printNonPrintable},
+		{'r', printReverse}, {'R', printRot13String}, {'\0', NULL}
 	};
 	for (i = 0; formatTypes[i].format != '\0'; i++)
 		if (format[*index] == formatTypes[i].format)

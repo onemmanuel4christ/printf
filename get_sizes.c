@@ -18,7 +18,7 @@ int get_size(const char *formatString, int *currentIndex)
 		size = S_LONG;
 
 	else if (formatString[currentIdx] == 'h')
-		size = S_SHORT
+		size = S_SHORT;
 
 			if (size == 0)
 				*currentIndex = currentIdx - 1;
