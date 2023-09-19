@@ -8,19 +8,18 @@ unsigned int conv_u(va_list list, bufferS *out_put,
 		unsigned char flags, int width, int precis, unsigned char length);
 unsigned int conv_o(va_list list, bufferS *out_put,
 		unsigned char flags, int width, int precis, unsigned char length);
-
 /**
- * @conv_di - Converts an argument to a signed int and
- *              stores it to a buffer contained in a struct.
- * @list: A va_list pointing to the argument to be converted.
- * @flags: Flag modifiers.
- * @width: A width modifier.
- * @precis: A precision modifier.
- * @length: A length modifier.
- * @out_put: A bufferS struct containing a character array.
- *
- * Return: The number of bytes stored to the buffer.
+ * @conv_di - Converts a numeric argument to a signed int and * saves it in a struct's buffer.
+ * The argument that is to be converted is pointed to by the va_list @list.
+ * @flags: Modifiers for flags.
+ * A width modifier is @width.
+ * @precis: A modifier for precision.
+ * @length: A modifier for length.
+ * @out_put: A character array in a bufferS struct.
+ * The amount of bytes that were added to the buffer, returned.
  */
+
+
 unsigned int conv_di(va_list list, bufferS *out_put,
 		unsigned char flags, int width, int precis, unsigned char length)
 {
@@ -99,18 +98,15 @@ unsigned int conv_b(va_list list, bufferS *out_put,
 
 	return (conv_ubase(out_put, numb, "01", flags, width, precis));
 }
-
 /**
- * conv_o - Converts an unsigned int to octal and
- *             stores it to a buffer contained in a struct.
- * @list: A va_list poinitng to the argument to be converted.
+ * conv_b - Converts an unsigned int argument to binary and stores it to a buffer contained in a struct.
+ * @list: A va_list pointing to the argument to be converted.
  * @flags: Flag modifiers.
  * @width: A width modifier.
  * @precis: A precision modifier.
  * @length: A length modifier.
  * @out_put: A bufferS struct containing a character array.
- *
- * Return: The number of bytes stored to the buffer.
+ * Return: The number of bytes stored to the buffer. 
  */
 unsigned int conv_o(va_list list, bufferS *out_put,
 		unsigned char flags, int width, int precis, unsigned char length)

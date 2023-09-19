@@ -6,18 +6,15 @@ unsigned int conv_percent(va_list list, bufferS *out_put,
 		unsigned char flags, int width, int precis, unsigned char length);
 unsigned int conv_p(va_list list, bufferS *out_put,
 		unsigned char flags, int width, int precis, unsigned char length);
-
 /**
- * conv_c - Converts an argument to an unsigned char and
- *             stores it to a buffer contained in a struct.
- * @list: A va_list pointing to the argument to be converted.
- * @flags: Flag modifiers.
- * @width: A width modifier.
- * @precis: A precision modifier.
- * @length: A length modifier.
- * @out_put: A bufferS struct containing a character array.
- *
- * Return: The number of bytes stored to the buffer.
+ * @conv_di - Saves a signed int representation of a numeric argument in a struct's buffer.The va_list 
+ * @list points to the argument that needs to be converted.
+ * Modifiers for flags are 
+ * @flags: the flags of the programs
+ * @width is a width modifier. 
+ * @precis: A precision-related modifier. 
+ * @length is a length modifier. Character array in a bufferS struct, 
+ * @out_put.Returns the number of bytes that were added to the buffer.
  */
 unsigned int conv_c(va_list list, bufferS *out_put,
 		unsigned char flags, int width, int precis, unsigned char length)
