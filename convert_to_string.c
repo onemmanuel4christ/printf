@@ -10,8 +10,8 @@ unsigned int conv_R(va_list list, bufferS *out_put,
 		unsigned char flags, int width, int precis, unsigned char length);
 
 /**
- * conv_s - Converts an argument to a string and
- *             stores it to a buffer contained in a struct.
+ * conv_s - Converts an argument to a string and stores it in a buffer within
+ *          a struct.
  * @list: A va_list pointing to the argument to be converted.
  * @flags: Flag modifiers.
  * @width: A width modifier.
@@ -19,8 +19,9 @@ unsigned int conv_R(va_list list, bufferS *out_put,
  * @length: A length modifier.
  * @out_put: A bufferS struct containing a character array.
  *
- * Return: The number of bytes stored to the buffer.
+ * Return: The number of bytes stored in the buffer.
  */
+
 unsigned int conv_s(va_list list, bufferS *out_put,
 		unsigned char flags, int width, int precis, unsigned char length)
 {
@@ -54,8 +55,8 @@ unsigned int conv_s(va_list list, bufferS *out_put,
 }
 
 /**
- * conv_s - Converts an argument to a string and
- *             stores it to a buffer contained in a struct.
+ * conv_s - Converts an argument to a string and stores it in a buffer within
+ *          a struct.
  * @list: A va_list pointing to the argument to be converted.
  * @flags: Flag modifiers.
  * @width: A width modifier.
@@ -63,11 +64,12 @@ unsigned int conv_s(va_list list, bufferS *out_put,
  * @length: A length modifier.
  * @out_put: A bufferS struct containing a character array.
  *
- * Return: The number of bytes stored to the buffer.
+ * Return: The number of bytes stored in the buffer.
  *
- * Description: Non-printable characteres (ASCII values < 32 or >= 127)
- *              are stored as \x followed by the ASCII code value in hex.
+ * Description: Non-printable characters (ASCII values < 32 or >= 127)
+ *              are stored as \x followed by the ASCII code value in hexadecimal.
  */
+
 unsigned int conv_S(va_list list, bufferS *out_put,
 		unsigned char flags, int width, int precis, unsigned char length)
 {
@@ -107,7 +109,7 @@ unsigned int conv_S(va_list list, bufferS *out_put,
 
 /**
  * conv_r - Reverses a string and stores it
- *             to a buffer contained in a struct.
+ *          to a buffer contained in a struct.
  * @list: A va_list pointing to the string to be reversed.
  * @flags: Flag modifiers.
  * @width: A width modifier.
@@ -117,6 +119,7 @@ unsigned int conv_S(va_list list, bufferS *out_put,
  *
  * Return: The number of bytes stored to the buffer.
  */
+
 unsigned int conv_r(va_list list, bufferS *out_put,
 		unsigned char flags, int width, int precis, unsigned char length)
 {

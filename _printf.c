@@ -5,10 +5,11 @@ int run_printf(const char *format, va_list list, bufferS *out_put);
 int _printf(const char *format, ...);
 
 /**
- * cleanup - Peforms cleanup operations for _printf.
+ * cleanup - Performs cleanup operations for _printf.
  * @list: A va_list of arguments provided to _printf.
- * @out_put: A bufferS struct.
+ * @o: An optional parameter (not described in the comment).
  */
+
 void cleanup(va_list list, bufferS *out_put)
 {
 	va_end(list);
@@ -17,13 +18,14 @@ void cleanup(va_list list, bufferS *out_put)
 }
 
 /**
- * run_printf - Reads through the format string for _printf.
- * @format: Character string to print - may contain directives.
- * @out_put: A bufferS struct containing a buffer.
+ * run_printf - Processes the format string for _printf.
+ * @format: The character string to print, which may contain formatting directives.
+ * @out_put: A bufferS struct containing a buffer for output.
  * @list: A va_list of arguments.
  *
- * Return: The number of characters stored to out_put.
+ * Return: The count of characters that were stored in out_put.
  */
+
 int run_printf(const char *format, va_list list, bufferS *out_put)
 {
 	int i, width, precis, reti = 0;
@@ -65,11 +67,12 @@ int run_printf(const char *format, va_list list, bufferS *out_put)
 }
 
 /**
- * _printf - Outputs a formatted string.
- * @format: Character string to print - may contain directives.
+ * _printf - Displays a formatted string.
+ * @format: A character string to be printed, which may include formatting directives.
  *
- * Return: The number of characters printed.
+ * Return: The count of characters that were printed.
  */
+
 int _printf(const char *format, ...)
 {
 	bufferS *output;

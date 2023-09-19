@@ -72,7 +72,7 @@ unsigned int conv_x(va_list list, bufferS *out_put,
 unsigned int conv_X(va_list list, bufferS *out_put,
 		unsigned char flags, int width, int precis, unsigned char length);
 unsigned int conv_di(va_list list, bufferS *out_put,
-			unsigned char flags, int width, int precis, unsigned char length);
+		unsigned char flags, int width, int precis, unsigned char length);
 unsigned int conv_b(va_list list, bufferS *out_put,
 		unsigned char flags, int width, int precis, unsigned char length);
 unsigned int conv_u(va_list list, bufferS *out_put,
@@ -86,9 +86,7 @@ unsigned int conv_r(va_list list, bufferS *out_put,
 unsigned int conv_R(va_list list, bufferS *out_put,
 		unsigned char flags, int width, int precis, unsigned char length);
 unsigned int conv_s(va_list list, bufferS *out_put,
-                unsigned char flags, int width, int precis, unsigned char length);
-
-/* Handlers */
+		unsigned char flags, int width, int precis, unsigned char length);
 unsigned char handle_flags(const char *flag, char *inde);
 unsigned char handle_length(const char *modif, char *inde);
 int handle_width(va_list args, const char *modif, char *inde);
@@ -96,7 +94,6 @@ int handle_precision(va_list args, const char *modif, char *inde);
 unsigned int (*handle_specifiers(const char *specif))(va_list, bufferS *,
 		unsigned char, int, int, unsigned char);
 
-/* Modifiers */
 unsigned int print_width(bufferS *out_put, unsigned int printed,
 		unsigned char flags, int width);
 unsigned int print_string_width(bufferS *out_put,
@@ -104,7 +101,6 @@ unsigned int print_string_width(bufferS *out_put,
 unsigned int print_neg_width(bufferS *out_put, unsigned int printed,
 		unsigned char flags, int width);
 
-/* Helper Functions */
 unsigned int _memcpy(bufferS *out_put, const char *source, unsigned int n);
 void free_buffer(bufferS *out_put);
 bufferS *init_buffer(void);

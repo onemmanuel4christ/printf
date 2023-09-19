@@ -13,6 +13,7 @@ bufferS *init_buffer(void);
  *
  * Return: The number of bytes copied.
  */
+
 unsigned int _memcpy(bufferS *out_put, const char *source, unsigned int n)
 {
 	unsigned int inde;
@@ -40,6 +41,7 @@ unsigned int _memcpy(bufferS *out_put, const char *source, unsigned int n)
  * free_buffer - Frees a bufferS struct.
  * @out_put: The bufferS struct to be freed.
  */
+
 void free_buffer(bufferS *out_put)
 {
 	free(out_put->start);
@@ -51,6 +53,7 @@ void free_buffer(bufferS *out_put)
  *
  * Return: A pointer to the initialized bufferS.
  */
+
 bufferS *init_buffer(void)
 {
 	bufferS *out_put;

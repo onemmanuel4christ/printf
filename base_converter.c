@@ -7,17 +7,18 @@ unsigned int conv_ubase(bufferS *out_put,
 		unsigned char flags, int width, int precis);
 
 /**
- * conv_sbase - Converts a signed long to an inputted base and stores
- *                 the result to a buffer contained in a struct.
+ * conv_sbase - Converts a signed long to the specified base and stores
+ *              the result in a buffer contained within a struct.
  * @out_put: A bufferS struct containing a character array.
- * @numb: A signed long to be converted.
- * @baseC: A pointer to a string containing the base to convert to.
+ * @numb: The signed long to be converted.
+ * @baseC: A pointer to a string specifying the base for conversion.
  * @flags: Flag modifiers.
  * @width: A width modifier.
  * @precis: A precision modifier.
  *
- * Return: The number of bytes stored to the buffer.
+ * Return: The number of bytes stored in the buffer.
  */
+
 unsigned int conv_sbase(bufferS *out_put, long int numb, char *baseC,
 		unsigned char flags, int width, int precis)
 {
@@ -51,18 +52,20 @@ unsigned int conv_sbase(bufferS *out_put, long int numb, char *baseC,
 	return (reti);
 }
 
+
 /**
- * conv_ubase - Converts an unsigned long to an inputted base and
- *                 stores the result to a buffer contained in a struct.
+ * conv_ubase - Converts an unsigned long to the specified base and
+ *              stores the result in a buffer contained within a struct.
  * @out_put: A buffer_t struct containing a character array.
- * @numb: An unsigned long to be converted.
- * @baseC: A pointer to a string containing the base to convert to.
+ * @numb: The unsigned long to be converted.
+ * @baseC: A pointer to a string specifying the base for conversion.
  * @flags: Flag modifiers.
  * @width: A width modifier.
  * @precis: A precision modifier.
  *
- * Return: The number of bytes stored to the buffer.
+ * Return: The number of bytes stored in the buffer.
  */
+
 unsigned int conv_ubase(bufferS *out_put, unsigned long int numb, char *baseC,
 		unsigned char flags, int width, int precis)
 {

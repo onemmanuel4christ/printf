@@ -8,13 +8,14 @@ unsigned int (*handle_specifiers(const char *specif))(va_list, bufferS *,
 		unsigned char, int, int, unsigned char);
 
 /**
- * handle_flags - Matches flags with corresponding values.
- * @flag: A pointer to a potential string of flags.
+ * handle_flags - Associates flags with their corresponding values.
+ * @flag: A pointer pointing to a potential string of flags.
  * @inde: An index counter for the original format string.
  *
- * Return: If flag characters are matched - a corresponding value.
- *         Otherwise - 0.
+ * Return: If flag characters are matched, it returns the corresponding value.
+ *         Otherwise, it returns 0.
  */
+
 unsigned char handle_flags(const char *flag, char *inde)
 {
 	int i, j;
@@ -50,13 +51,14 @@ unsigned char handle_flags(const char *flag, char *inde)
 }
 
 /**
- * handle_length - Matches length modifiers with their corresponding value.
- * @modif: A pointer to a potential length modifier.
+ * handle_length - Associates length modifiers with their corresponding values.
+ * @modif: A pointer pointing to a potential length modifier.
  * @inde: An index counter for the original format string.
  *
- * Return: If a lenth modifier is matched - its corresponding value.
- *         Otherwise - 0.
+ * Return: If a length modifier is matched, it returns its corresponding value.
+ *         Otherwise, it returns 0.
  */
+
 unsigned char handle_length(const char *modif, char *inde)
 {
 	if (*modif == 'h')
@@ -75,14 +77,15 @@ unsigned char handle_length(const char *modif, char *inde)
 }
 
 /**
- * handle_width - Matches a width modifier with its corresponding value.
+ * handle_width - Associates a width modifier with its corresponding value.
  * @args: A va_list of arguments.
- * @modif: A pointer to a potential width modifier.
+ * @modif: A pointer pointing to a potential width modifier.
  * @inde: An index counter for the original format string.
  *
- * Return: If a width modifier is matched - its value.
- *         Otherwise - 0.
+ * Return: If a width modifier is matched, it returns its value.
+ *         Otherwise, it returns 0.
  */
+
 int handle_width(va_list args, const char *modif, char *inde)
 {
 	int value = 0;
@@ -108,16 +111,17 @@ int handle_width(va_list args, const char *modif, char *inde)
 }
 
 /**
- * handle_precision - Matches a precision modifier with
+ * handle_precision - Associates a precision modifier with
  *                    its corresponding value.
  * @args: A va_list of arguments.
- * @modif: A pointer to a potential precision modifier.
+ * @modif: A pointer pointing to a potential precision modifier.
  * @inde: An index counter for the original format string.
  *
- * Return: If a precision modifier is matched - its value.
- *         If the precision modifier is empty, zero, or negative - 0.
- *         Otherwise - -1.
+ * Return: If a precision modifier is matched, it returns its value.
+ *         If the precision modifier is empty, zero, or negative, it returns 0.
+ *         Otherwise, it returns -1.
  */
+
 int handle_precision(va_list args, const char *modif, char *inde)
 {
 	int value = 0;
@@ -158,13 +162,14 @@ int handle_precision(va_list args, const char *modif, char *inde)
 }
 
 /**
- * handle_specifiers - Matches a conversion specifier with
+ * handle_specifiers - Associates a conversion specifier with
  *                     a corresponding conversion function.
  * @specif: A pointer to a potential conversion specifier.
  *
- * Return: If a conversion function is matched - a pointer to the function.
- *         Otherwise - NULL.
+ * Return: If a matching conversion function is found, it returns a pointer to the function.
+ *         Otherwise, it returns NULL.
  */
+
 unsigned int (*handle_specifiers(const char *specif))(va_list, bufferS *,
 		unsigned char, int, int, unsigned char)
 {

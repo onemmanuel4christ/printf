@@ -6,8 +6,9 @@ unsigned int conv_X(va_list list, bufferS *out_put,
 		unsigned char flags, int width, int precis, unsigned char length);
 
 /**
- * conve_x - Converts an unsigned int argument to hex using abcdef
- *             and stores it to a buffer contained in a struct.
+ * conve_x - Converts an unsigned int argument to a hexadecimal representation
+ *           using lowercase letters (abcdef) and stores it in a buffer within
+ *           a struct.
  * @list: A va_list pointing to the argument to be converted.
  * @flags: Flag modifiers.
  * @width: A width modifier.
@@ -15,8 +16,9 @@ unsigned int conv_X(va_list list, bufferS *out_put,
  * @length: A length modifier.
  * @out_put: A bufferS struct containing a character array.
  *
- * Return: The number of bytes stored to the buffer.
+ * Return: The number of bytes stored in the buffer.
  */
+
 unsigned int conv_x(va_list list, bufferS *out_put,
 		unsigned char flags, int width, int precis, unsigned char length)
 {
@@ -44,8 +46,9 @@ unsigned int conv_x(va_list list, bufferS *out_put,
 }
 
 /**
- * conv_X - Converts an unsigned int argument to hex using ABCDEF
- *             and stores it to a buffer contained in a struct.
+ * conv_X - Converts an unsigned int argument to a hexadecimal representation
+ *           using uppercase letters (ABCDEF) and stores it in a buffer within
+ *           a struct.
  * @list: A va_list pointing to the argument to be converted.
  * @flags: Flag modifiers.
  * @width: A width modifier.
@@ -53,8 +56,9 @@ unsigned int conv_x(va_list list, bufferS *out_put,
  * @length: A length modifier.
  * @out_put: A bufferS struct containing a character array.
  *
- * Return: The number of bytes stored to the buffer.
+ * Return: The number of bytes stored in the buffer.
  */
+
 unsigned int conv_X(va_list list, bufferS *out_put,
 		unsigned char flags, int width, int precis, unsigned char length)
 {
