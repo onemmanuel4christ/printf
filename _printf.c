@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * _printf - Printf function
  * @format: format.
@@ -16,6 +15,13 @@ int _printf(const char *format, ...)
 		return (-1);
 	va_start(list, format);
 	for (i = 0; format && format[i] != '\0'; i++)
+		int count = 0;
+	va_list args;
+	
+	va_start(args, format);
+	if (format == NULL)
+		return (-1);
+	while (*format)
 	{
 		if (format[i] != '%')
 		{
@@ -39,14 +45,10 @@ int _printf(const char *format, ...)
 			printed_chars += printed;
 		}
 	}
-
 	print_buffer(buffer, &buff_ind);
-
 	va_end(list);
-
 	return (printed_chars);
 }
-
 /**
  * print_buffer - Prints the contents of the buffer if it exist
  * @buffer: Array of chars
