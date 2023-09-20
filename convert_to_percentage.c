@@ -1,19 +1,20 @@
 #include "main.h"
 
-unsigned int conv_c(va_list list, bufferS *out_put,
+unsigned int conv_c(va_list list, bufferS * out_put,
 		unsigned char flags, int width, int precis, unsigned char length);
 unsigned int conv_percent(va_list list, bufferS *out_put,
 		unsigned char flags, int width, int precis, unsigned char length);
 unsigned int conv_p(va_list list, bufferS *out_put,
 		unsigned char flags, int width, int precis, unsigned char length);
 /**
- * @conv_di - Saves a signed int representation of a numeric argument in a struct's buffer.The va_list 
+ * @conv_di - Saves a signed int representation of
+ * a numeric argument in a struct's buffer.The va_list
  * @list points to the argument that needs to be converted.
- * Modifiers for flags are 
+ * Modifiers for flags are
  * @flags: the flags of the programs
- * @width is a width modifier. 
- * @precis: A precision-related modifier. 
- * @length is a length modifier. Character array in a bufferS struct, 
+ * @width is a width modifier.
+ * @precis: A precision-related modifier.
+ * @length is a length modifier. Character array in a bufferS struct,
  * @out_put.Returns the number of bytes that were added to the buffer.
  */
 unsigned int conv_c(va_list list, bufferS *out_put,
@@ -27,7 +28,7 @@ unsigned int conv_c(va_list list, bufferS *out_put,
 
 	c = va_arg(list, int);
 
-	reti += print_width(out_put, reti	, flags, width);
+	reti += print_width(out_put, reti, flags, width);
 	reti += _memcpy(out_put, &c, 1);
 	reti += print_neg_width(out_put, reti, flags, width);
 

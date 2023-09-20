@@ -1,6 +1,6 @@
 #include "main.h"
 
-unsigned int conv_x(va_list list, bufferS *out_put,
+unsigned int conv_x(va_list list, bufferS * out_put,
 		unsigned char flags, int width, int precis, unsigned char length);
 unsigned int conv_X(va_list list, bufferS *out_put,
 		unsigned char flags, int width, int precis, unsigned char length);

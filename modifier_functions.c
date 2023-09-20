@@ -1,6 +1,6 @@
 #include "main.h"
 
-unsigned int print_width(bufferS *out_put, unsigned int printed,
+unsigned int print_width(bufferS * out_put, unsigned int printed,
 		unsigned char flags, int width);
 unsigned int print_string_width(bufferS *out_put,
 		unsigned char flags, int width, int precis, int sizeT);

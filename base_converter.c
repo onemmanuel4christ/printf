@@ -1,6 +1,5 @@
 #include "main.h"
-
-unsigned int conv_sbase(bufferS *out_put, long int numb, char *baseC,
+unsigned int conv_sbase(bufferS * out_put, long int numb, char *baseC,
 		unsigned char flags, int width, int precis);
 unsigned int conv_ubase(bufferS *out_put,
 		unsigned long int numb, char *baseC,

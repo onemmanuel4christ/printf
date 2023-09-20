@@ -1,6 +1,6 @@
 #include "main.h"
 
-unsigned int conv_s(va_list list, bufferS *out_put,
+unsigned int conv_s(va_list list, bufferS * out_put,
 		unsigned char flags, int width, int precis, unsigned char length);
 unsigned int conv_S(va_list list, bufferS *out_put,
 		unsigned char flags, int width, int precis, unsigned char length);
@@ -67,7 +67,7 @@ unsigned int conv_s(va_list list, bufferS *out_put,
  * Return: The number of bytes stored in the buffer.
  *
  * Description: Non-printable characters (ASCII values < 32 or >= 127)
- *              are stored as \x followed by the ASCII code value in hexadecimal.
+ *are stored as \x followed by the ASCII code value in hexadecimal.
  */
 
 unsigned int conv_S(va_list list, bufferS *out_put,

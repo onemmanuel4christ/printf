@@ -1,6 +1,5 @@
 #include "main.h"
-
-unsigned int conv_di(va_list list, bufferS *out_put,
+unsigned int conv_di(va_list list, bufferS * out_put,
 		unsigned char flags, int width, int precis, unsigned char length);
 unsigned int conv_b(va_list list, bufferS *out_put,
 		unsigned char flags, int width, int precis, unsigned char length);
@@ -9,17 +8,14 @@ unsigned int conv_u(va_list list, bufferS *out_put,
 unsigned int conv_o(va_list list, bufferS *out_put,
 		unsigned char flags, int width, int precis, unsigned char length);
 /**
- * @conv_di - Converts a numeric argument to a signed int and * saves it in a struct's buffer.
- * The argument that is to be converted is pointed to by the va_list @list.
+ * @conv_di - Converts a numeric argument to
+ * @list.
  * @flags: Modifiers for flags.
  * A width modifier is @width.
  * @precis: A modifier for precision.
  * @length: A modifier for length.
- * @out_put: A character array in a bufferS struct.
- * The amount of bytes that were added to the buffer, returned.
+ * @out_put: A character array in a bufferS struct returned.
  */
-
-
 unsigned int conv_di(va_list list, bufferS *out_put,
 		unsigned char flags, int width, int precis, unsigned char length)
 {
@@ -33,10 +29,8 @@ unsigned int conv_di(va_list list, bufferS *out_put,
 		d = va_arg(list, int);
 	if (length == SHORT)
 		d = (short)d;
-
 	if (SPACE_FLAG == 1 && d >= 0)
 		reti += _memcpy(out_put, &space, 1);
-
 	if (precis <= 0 && NEG_FLAG == 0)
 	{
 		if (d == LONG_MIN)
@@ -55,36 +49,28 @@ unsigned int conv_di(va_list list, bufferS *out_put,
 			reti += _memcpy(out_put, &plus, 1);
 		if (ZERO_FLAG == 1 && d < 0)
 			reti += _memcpy(out_put, &neg, 1);
-
 		pad = (ZERO_FLAG == 1) ? '0' : ' ';
 		for (width -= count; width > 0; width--)
 			reti += _memcpy(out_put, &pad, 1);
 	}
-
 	if (ZERO_FLAG == 0 && d < 0)
 		reti += _memcpy(out_put, &neg, 1);
 	if (ZERO_FLAG == 0 && (PLUS_FLAG == 1 && d >= 0))
 		reti += _memcpy(out_put, &plus, 1);
-
 	if (!(d == 0 && precis == 0))
-		reti += conv_ubase(out_put, d, "0123456789",
-				flags, 0, precis);
-
+		reti += conv_ubase(out_put, d, "0123456789", flags, 0, precis);
 	reti += print_neg_width(out_put, reti, flags, width);
-
 	return (reti);
 }
-
 /**
  * conv_b - Converts an unsigned int argument to binary
- *             and stores it to a buffer contained in a struct.
+ * and stores it to a buffer contained in a struct.
  * @list: A va_list pointing to the argument to be converted.
  * @flags: Flag modifiers.
  * @width: A width modifier.
  * @precis: A precision modifier.
  * @length: A length modifier.
  * @out_put: A bufferS struct containing a character array.
- *
  * Return: The number of bytes stored to the buffer.
  */
 unsigned int conv_b(va_list list, bufferS *out_put,
@@ -93,20 +79,18 @@ unsigned int conv_b(va_list list, bufferS *out_put,
 	unsigned int numb;
 
 	numb = va_arg(list, unsigned int);
-
 	(void)length;
-
 	return (conv_ubase(out_put, numb, "01", flags, width, precis));
 }
 /**
- * conv_b - Converts an unsigned int argument to binary and stores it to a buffer contained in a struct.
+ * conv_b - Converts an unsigned int argument to buffer
  * @list: A va_list pointing to the argument to be converted.
  * @flags: Flag modifiers.
  * @width: A width modifier.
  * @precis: A precision modifier.
  * @length: A length modifier.
  * @out_put: A bufferS struct containing a character array.
- * Return: The number of bytes stored to the buffer. 
+ * Return: The number of bytes stored to the buffer.
  */
 unsigned int conv_o(va_list list, bufferS *out_put,
 		unsigned char flags, int width, int precis, unsigned char length)
